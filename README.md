@@ -1,7 +1,9 @@
 # zapretchecker
 bol-van/zapret Checker
 
-![Image alt]([https://github.com/Uefi1/zapretchecker/blob/main/2025-12-09_022322.jpg])
+![Image alt]([https://github.com/Uefi1/zapretchecker/blob/main/2025-12-21_191036.jpg])
+
+V2 Доступна смотрите Релизы
 
 Привет данный софт нечто иное как простой чекер стратегий для https://github.com/bol-van/zapret
 с использованием проблем возникнуть никаких не должно интерфейс так как интерфейс дружелюбный и интуитивно понятный:
@@ -24,7 +26,7 @@ bol-van/zapret Checker
 Наверное софт медленноватый по сравнению с другими подобными всем Свободного Интернета
 
 Отчёт с вирустотал:
-https://www.virustotal.com/gui/file/d375326fe0fcde55eb454417e0ea56a084243b749621505c0c1807b46c7f87c8
+https://www.virustotal.com/gui/file/e81e342a89cd86eb82c3ebf7f5e3117f9c970f39a841781032058607c6c91b0c
 
 Поблагодарить автора софта можете:
 
