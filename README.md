@@ -1,7 +1,7 @@
 # zapretchecker
 bol-van/zapret Checker
 
-![Image alt]([https://github.com/Uefi1/zapretchecker/blob/main/2025-12-21_191036.jpg])
+![Image alt](https://github.com/Uefi1/zapretchecker/blob/main/2025-12-21_191036.jpg)
 
 V2 Доступна смотрите Релизы
 
