@@ -1,7 +1,7 @@
 # zapretchecker
 bol-van/zapret Checker
 
-![Image alt](https://github.com/Uefi1/zapretchecker/blob/main/2025-12-09_022322.jpg)
+![Image alt]([https://github.com/Uefi1/zapretchecker/blob/main/2025-12-09_022322.jpg])
 
 Привет данный софт нечто иное как простой чекер стратегий для https://github.com/bol-van/zapret
 с использованием проблем возникнуть никаких не должно интерфейс так как интерфейс дружелюбный и интуитивно понятный:
