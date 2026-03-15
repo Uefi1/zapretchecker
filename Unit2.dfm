@@ -2,7 +2,7 @@ object Form2: TForm2
   Left = 0
   Top = 0
   BorderIcons = [biSystemMenu, biMinimize]
-  Caption = 'bol-van/Zapret Strategies Checker v3 by Uefi1(triblekill)'
+  Caption = 'bol-van/Zapret Strategies Checker v3.1 by Uefi1(triblekill)'
   ClientHeight = 459
   ClientWidth = 514
   Color = clBtnFace
@@ -17,9 +17,9 @@ object Form2: TForm2
   object Label1: TLabel
     Left = 16
     Top = 71
-    Width = 390
+    Width = 397
     Height = 16
-    Caption = 'C:\Program Files\zapret-v72.3\binaries\windows-x86_64\winws.exe'
+    Caption = 'C:\Program Files\zapret-v72.12\binaries\windows-x86_64\winws.exe'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -13
@@ -56,11 +56,11 @@ object Form2: TForm2
   object Label2: TLabel
     Left = 16
     Top = 151
-    Width = 430
+    Width = 437
     Height = 16
     Caption = 
-      'C:\Program Files\zapret-v72.3\files\fake\quic_initial_www_google' +
-      '_com.bin'
+      'C:\Program Files\zapret-v72.12\files\fake\quic_initial_www_googl' +
+      'e_com.bin'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -13

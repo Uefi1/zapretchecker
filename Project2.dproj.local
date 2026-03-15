@@ -2,22 +2,22 @@
 <BorlandProject>
 	<Transactions>
     <Transaction>1899.12.30 00:00:00.000.072,=C:\Users\Sash\Documents\RAD Studio\Projects\Unit2.pas</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.403,D:\My\Delphi\zapretchecker\Project2.dproj=C:\Users\Sash\Documents\RAD Studio\Projects\Project2.dproj</Transaction>
     <Transaction>1899.12.30 00:00:00.000.080,=C:\Users\Sash\Documents\RAD Studio\Projects\Unit2.pas</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.242,=C:\Users\Sash\Documents\RAD Studio\Projects\Unit2.pas</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.583,D:\My\Delphi\zapretchecker\Unit2.dfm=C:\Users\Sash\Documents\RAD Studio\Projects\Unit2.dfm</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.154,=C:\Users\Sash\Documents\RAD Studio\Projects\AppletModule1.pas</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.583,D:\My\Delphi\zapretchecker\Unit2.pas=C:\Users\Sash\Documents\RAD Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.862,=C:\Users\Sash\Documents\RAD Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.556,=C:\Users\Sash\Documents\RAD Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.403,C:\Users\Sash\Documents\RAD Studio\Projects\Project2.dproj=D:\My\Delphi\zapretchecker\Project2.dproj</Transaction>
     <Transaction>1899.12.30 00:00:00.000.325,=C:\Users\Sash\Documents\RAD Studio\Projects\AppletModule1.pas</Transaction>
     <Transaction>1899.12.30 00:00:00.000.278,=C:\Users\Sash\Documents\RAD Studio\Projects\AppletModule1.pas</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.862,=C:\Users\Sash\Documents\RAD Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.583,C:\Users\Sash\Documents\RAD Studio\Projects\Unit2.dfm=D:\My\Delphi\zapretchecker\Unit2.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.154,=C:\Users\Sash\Documents\RAD Studio\Projects\AppletModule1.pas</Transaction>
     <Transaction>1899.12.30 00:00:00.000.658,=C:\Users\Sash\Documents\RAD Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.583,C:\Users\Sash\Documents\RAD Studio\Projects\Unit2.pas=D:\My\Delphi\zapretchecker\Unit2.pas</Transaction>
     <Transaction>1899.12.30 00:00:00.000.713,=C:\Users\Sash\Documents\RAD Studio\Projects\Unit2.pas</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.556,=C:\Users\Sash\Documents\RAD Studio\Projects\Unit2.pas</Transaction>
     <Transaction>1899.12.30 00:00:00.000.461,=C:\Users\Sash\Documents\RAD Studio\Projects\Unit2.pas</Transaction>
     <Transaction>1899.12.30 00:00:00.000.455,=C:\Users\Sash\Documents\RAD Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.310,=C:\Users\Sash\Documents\RAD Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.242,=C:\Users\Sash\Documents\RAD Studio\Projects\Unit2.pas</Transaction>
     <Transaction>1899.12.30 00:00:00.000.703,=C:\Users\Sash\Documents\RAD Studio\Projects\Unit2.pas</Transaction>
     <Transaction>1899.12.30 00:00:00.000.381,=C:\Users\Sash\Documents\RAD Studio\Projects\Unit2.pas</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.310,=C:\Users\Sash\Documents\RAD Studio\Projects\Unit2.pas</Transaction>
   </Transactions>
 </BorlandProject>

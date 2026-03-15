@@ -66,7 +66,7 @@ Result:=Copy(List[0], Pos(':', List[0]) + 1, Length(List[0]));
 List.Free;
 end;
 
-procedure CreateLink(const FPath, FPathLink, Param: string);
+procedure CreateLink(const FPath, FPathLink, Param: string); inline;
 var
   IObject: IUnknown;
   SLink: IShellLink;
@@ -87,7 +87,7 @@ begin
 end;
 
 
-function checksites(const urls:TStringList):integer;
+function checksites(const urls:TStringList):integer; inline;
 var
 Event : TCountdownEvent;
 counter: IOmniCounter;
