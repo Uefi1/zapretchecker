@@ -2,9 +2,9 @@ object Form2: TForm2
   Left = 0
   Top = 0
   BorderIcons = [biSystemMenu, biMinimize]
-  Caption = 'bol-van/Zapret Strategies Checker v3.1 by Uefi1(triblekill)'
-  ClientHeight = 459
-  ClientWidth = 514
+  Caption = 'bol-van/Zapret Strategies Checker v4 by Uefi1(triblekill)'
+  ClientHeight = 457
+  ClientWidth = 504
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -29,7 +29,7 @@ object Form2: TForm2
   end
   object Label3: TLabel
     Left = 16
-    Top = 231
+    Top = 256
     Width = 224
     Height = 16
     Caption = 'zapretchecker\Strategies\Strategies.txt'
@@ -42,10 +42,10 @@ object Form2: TForm2
   end
   object Label4: TLabel
     Left = 16
-    Top = 311
-    Width = 194
+    Top = 324
+    Width = 167
     Height = 16
-    Caption = 'zapretchecker\Sites\checksites.txt'
+    Caption = 'zapretchecker\Sites\FAST.txt'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -13
@@ -70,7 +70,7 @@ object Form2: TForm2
   end
   object Label5: TLabel
     Left = 16
-    Top = 344
+    Top = 357
     Width = 25
     Height = 16
     Caption = 'SNI:'
@@ -101,7 +101,7 @@ object Form2: TForm2
   end
   object Button4: TButton
     Left = 16
-    Top = 264
+    Top = 285
     Width = 121
     Height = 33
     Caption = 'Sites'
@@ -110,7 +110,7 @@ object Form2: TForm2
   end
   object Button5: TButton
     Left = 16
-    Top = 384
+    Top = 394
     Width = 121
     Height = 41
     Caption = 'Start'
@@ -127,8 +127,8 @@ object Form2: TForm2
     OnClick = Button2Click
   end
   object Button6: TButton
-    Left = 277
-    Top = 384
+    Left = 284
+    Top = 394
     Width = 129
     Height = 41
     Caption = 'Stop'
@@ -137,11 +137,37 @@ object Form2: TForm2
   end
   object Edit1: TEdit
     Left = 47
-    Top = 343
-    Width = 163
+    Top = 357
+    Width = 136
     Height = 21
     TabOrder = 6
-    Text = 'www.google.com'
+    Text = 'www.gismeteo.ru'
+  end
+  object CheckBox1: TCheckBox
+    Left = 16
+    Top = 228
+    Width = 121
+    Height = 17
+    Caption = 'Random:'
+    Checked = True
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    State = cbChecked
+    TabOrder = 7
+  end
+  object SpinEdit1: TSpinEdit
+    Left = 96
+    Top = 228
+    Width = 87
+    Height = 22
+    MaxValue = 0
+    MinValue = 0
+    TabOrder = 8
+    Value = 1500
   end
   object FileOpenDialog1: TFileOpenDialog
     FavoriteLinks = <>

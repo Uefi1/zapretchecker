@@ -5,7 +5,8 @@ interface
 uses
   Winapi.Windows, System.SysUtils, System.Classes, System.SyncObjs, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, System.IOUtils, ComObj, ActiveX, ShlObj,
-  httpsend, ssl_openssl, OtlParallel, OtlCommon, System.Generics.Collections;
+  httpsend, ssl_openssl, OtlParallel, OtlCommon, System.Generics.Collections, StrategyGen,
+  Vcl.Samples.Spin;
 
 type
   TForm2 = class(TForm)
@@ -22,6 +23,8 @@ type
     Button6: TButton;
     Edit1: TEdit;
     Label5: TLabel;
+    CheckBox1: TCheckBox;
+    SpinEdit1: TSpinEdit;
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
     procedure Button3Click(Sender: TObject);
@@ -40,7 +43,7 @@ var
   Form2: TForm2;
   zapret: string;
   work: boolean=True;
-  CPUCORES: integer = 4;
+  CPUCORES: integer = 1;
 
 implementation
 
@@ -101,10 +104,10 @@ begin
 TThread.CreateAnonymousThread(
 procedure
 var
-http:THttpSend;
+http:THTTPSend;
 begin
 try
-http:=THttpSend.Create;
+http:=THTTPSend.Create;
 http.UserAgent:='Mozilla / 5.0 (Macintosh; Intel Mac OS X 10_15_3) AppleWebKit / 537.36 (KHTML, как Gecko) Chrome / 80.0.3987.163 Safari / 537.36';
 http.KeepAlive:=False;
 http.Sock.HTTPTunnelTimeout:=httptimeout;
@@ -114,6 +117,7 @@ http.Sock.SocksTimeout:=httptimeout;
 //http.Sock.SetRecvTimeout(httptimeout);
 http.Sock.SetTimeout(httptimeout);
 http.Timeout:=httptimeout;
+http.KeepAliveTimeout:=httptimeout;
 http.HTTPMethod('HEAD', Trim(urls[idx]));
 if http.ResultCode=200 then
 counter.Increment;
@@ -151,6 +155,7 @@ begin
 //FileOpenDialog1.Options := [];
 if FileOpenDialog1.Execute then
 label3.Caption:=FileOpenDialog1.FileName;
+CheckBox1.Checked:=False;
 end;
 
 procedure TForm2.Button4Click(Sender: TObject);
@@ -165,14 +170,14 @@ var
 StartTime: TDateTime;
 writer:TStreamWriter;
 sitelist: TStringlist;
-stratalist:TList<string>;
+stratalist:TArray<string>;
 sni, bin, FSavePath:string;
 begin
 Randomize;
 StartTime := Now;
 Button5.Enabled:=False;
 work:=True;
-CPUCORES:=TThread.ProcessorCount;
+CPUCORES:=TThread.ProcessorCount-1;
 ForceDirectories(Extractfilepath(paramstr(0))+'Results');
 ForceDirectories(Extractfilepath(paramstr(0))+'Results\BestConfig');
 FSavePath:=Extractfilepath(paramstr(0))+'Results\Found_'+FormatDateTime('DD.MM.YYYY_hh.mm', Now)+'.txt';
@@ -180,8 +185,11 @@ Writer:=TstreamWriter.Create(FSavePath, True, TEncoding.Ansi, 65535);
 zapret:=Trim(label1.Caption);
 bin:='"'+Trim(label2.Caption)+'"';
 sni:=Trim(Edit1.Text);
-stratalist:= Tlist<string>.Create;
-stratalist.AddRange(TFile.ReadAllLines(Trim(label3.Caption)));
+//stratalist:= Tlist<string>.Create;
+if Checkbox1.Checked then
+stratalist:=GenerateStrategies(spinedit1.Value).ToArray
+else
+stratalist:=TArray<string>(TFile.ReadAllLines(Trim(label3.Caption), TEncoding.Default));
 sitelist:= TStringlist.Create;
 sitelist.LoadFromFile(Trim(label4.Caption));
 TThread.CreateAnonymousThread(
@@ -192,24 +200,25 @@ PI: TProcessInformation;
 str:string;
 i, Last:integer;
 begin
-for i:= 0 to stratalist.Count-1 do begin
+for i:= 0 to High(stratalist) do begin
 try
 FillChar(SI, SizeOf(SI), 0);
 SI.cb := SizeOf(SI);
 Si.dwFlags := STARTF_USESHOWWINDOW;
 Si.wShowWindow := SW_SHOWMINNOACTIVE; // Свернуть без активации
-str:=StringReplace(Trim(stratalist.Items[i]), '=PAYLOAD', '='+bin, [rfReplaceAll]);
-str:=StringReplace(str, 'sni=SNI', 'sni='+sni, [rfReplaceAll]);
-//str:=Trim(stratalist.Items[i]);
-CreateProcess(nil, PChar(zapret+' --wf-tcp=80,443 '+ str), nil, nil, False, 0, nil, nil, Si, Pi);
+str:=StringReplace(Trim(stratalist[i]), '=PAYLOAD', '='+bin, [rfReplaceAll, rfIgnoreCase]);
+str:=StringReplace(str, 'sni=SNI', 'sni='+sni, [rfReplaceAll, rfIgnoreCase]);
+str:=StringReplace(str, '=SNI', '='+sni, [rfReplaceAll, rfIgnoreCase]);
+if not CreateProcess(nil, PChar(zapret+' --wf-tcp=80,443,5222 '+ str), nil, nil, False, 0, nil, nil, Si, Pi) then
+Tfile.AppendAllText(Extractfilepath(paramstr(0))+'Results\BAD.txt', str+#13#10);
 Last:=checksites(sitelist);
-Writer.WriteLine(Format('%d/%d:--wf-tcp=80,443 %s', [Last, sitelist.Count-1, str]));
+Writer.WriteLine(Format('%d/%d:--wf-tcp=80,443,5222 %s', [Last, sitelist.Count-1, str]));
 finally
 TerminateProcess(PI.hProcess, 0);
 CloseHandle(PI.hProcess);
 CloseHandle(PI.hThread);
 //lock.Acquire;
-Form2.Caption := Format('Checked: %d/%d Last: %d/%d Elapsed Time: %s', [i + 1, stratalist.Count-1, Last, sitelist.Count-1 ,FormatDateTime('hh:nn:ss', Now - StartTime)]);
+Form2.Caption := Format('Checked: %d/%d Last: %d/%d Elapsed Time: %s', [i + 1, Length(stratalist), Last, sitelist.Count-1 ,FormatDateTime('hh:nn:ss', Now - StartTime)]);
 //lock.Release;
 end;
 if work=False then
@@ -218,7 +227,7 @@ end;
 Writer.Close;
 Writer.Free;
 sitelist.Free;
-stratalist.Free;
+//stratalist.Free;
 CreateLink(zapret, Extractfilepath(paramstr(0))+'Results\BestConfig', '@Config.cfg');
 TFile.WriteAllText(Extractfilepath(paramstr(0))+'Results\BestConfig\Config.cfg', Sort(FSavePath));
 MessageBox(Handle, 'Check Completed', 'OK', MB_ICONINFORMATION);
